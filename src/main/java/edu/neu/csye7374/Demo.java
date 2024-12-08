@@ -23,6 +23,7 @@ import edu.neu.csye7374.Util.CSVHandler;
 import edu.neu.csye7374.Util.FileHandlerAPI;
 import edu.neu.csye7374.Observer.*;
 
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -281,7 +282,7 @@ public class Demo {
                 FlightPriceCurrency c_adapter = new CurrencyAdapter(us_currency);
 
                 System.out.println("US Currency...LegacyAPI");
-                us_currency.showpriceCurrency(Delta.getFlights().get(0).getPrice());
+                us_currency.showPriceCurrency(Delta.getFlights().get(0).getPrice());
 
                 System.out.println("Flight Price in INR Currency...Client API");
                 Ifpc.showcurrency(Delta.getFlights().get(0).getPrice());

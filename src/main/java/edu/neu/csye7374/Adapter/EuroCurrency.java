@@ -1,6 +1,6 @@
 package edu.neu.csye7374.Adapter;
 
-public class EuroCurrency implements FlightCurrency {
+public class EuroCurrency implements FlightPriceCurrency {
     public double conversionRate = ConversionRate.EUR.getRate();
 
     @Override

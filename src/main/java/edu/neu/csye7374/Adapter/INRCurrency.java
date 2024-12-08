@@ -1,6 +1,6 @@
 package edu.neu.csye7374.Adapter;
 
-public class INRCurrency implements FlightCurrency {
+public class INRCurrency implements FlightPriceCurrency {
     public double conversionRate = ConversionRate.INR.getRate();
 
     @Override

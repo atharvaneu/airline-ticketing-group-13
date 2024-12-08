@@ -1,5 +1,7 @@
 package edu.neu.csye7374.Bridge;
 
+import edu.neu.csye7374.Booking;
+
 public class SeatChangeFeature implements TicketFeature {
 
     public SeatChangeFeature(String seatID) {

@@ -1,6 +1,6 @@
 package edu.neu.csye7374.Adapter;
 
-public class CurrencyAdapter implements FlightCurrency {
+public class CurrencyAdapter implements FlightPriceCurrency {
 
     Currency c ;
 

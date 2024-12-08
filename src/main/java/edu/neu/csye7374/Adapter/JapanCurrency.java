@@ -1,6 +1,6 @@
 package edu.neu.csye7374.Adapter;
 
-public class JapanCurrency implements FlightCurrency {
+public class JapanCurrency implements FlightPriceCurrency {
     public double conversionRate = ConversionRate.JPY.getRate();
 
     @Override
