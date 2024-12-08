@@ -1,9 +1,6 @@
-package org.neu;
+package edu.neu.csye7374;
 
-import org.neu.Adapter.JapanCurrency;
 import org.neu.Adapter.FlightPriceCurrency;
-import org.neu.Adapter.INRCurrency;
-import org.neu.Adapter.USCurrency;
 
 public class Demo {
     public static void run() {

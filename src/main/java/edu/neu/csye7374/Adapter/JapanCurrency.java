@@ -1,4 +1,4 @@
-package org.neu.Adapter;
+package edu.neu.csye7374.Adapter;
 
 public class JapanCurrency implements FlightCurrency {
     public double conversionRate = ConversionRate.JPY.getRate();
