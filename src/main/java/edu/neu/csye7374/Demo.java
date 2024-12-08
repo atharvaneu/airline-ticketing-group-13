@@ -31,32 +31,27 @@ import java.util.Date;
 import java.util.List;
 
 public class Demo {
-        /*
-         * contains only static demo() method to showcase all design patterns and
-         * intended program workflow
-         * console output reflects working of the demo() method
-         */
-        public static void demo() throws ParseException {
+        public static void run() throws ParseException {
 
-                // Singleton Factory Design Pattern
-                System.out.println("\n******************* Singleton Factory Design Pattern *******************\n");
+                // Design Pattern 1- Singleton Factory Design Pattern
+                System.out.println("\n*********** DESIGN PATTERN - Singleton Factory Design Pattern **********\n");
 
-                System.out.println("Creating airline using Singleton Factory...");
-                AirlineFactory airlineFactory2 = AirlineFactory.getInstance();
-                Airline Delta = airlineFactory2.getObject();
+                System.out.println("Initialize Airline though Singleton Factory...");
+                AirlineFactory af = AirlineFactory.getInstance();
+                Airline Delta = af.getObject();
                 Delta.setAirlineName("Delta");
                 System.out.println("Airline created: " + Delta.getAirLineName());
 
-                System.out.println("\nSingleton Factory pattern ensures a class has only one instance and provides a global point of access to it.");
+                System.out.println("\nThe Singleton Factory pattern ensures a single factory instance globally manages object creation and control.");
                 System.out.println("\n************************************************************** ");
 
-                // Facade Design Pattern
-                System.out.println("\n******************* Facade Design Pattern *******************\n");
+                // Design Pattern 2 - Facade Design Pattern
+                System.out.println("\n************ DESIGN PATTERN - Facade Design Pattern *************\n");
 
                 FileHandlerAPI csvHandler = new CSVHandler();
                 SaveAndLoadFacadeAPI dataHandler = new SaveAndLoadToLocal(csvHandler);
 
-                System.out.println("Creating Delta airways using Facade pattern...");
+                System.out.println("Initializing Delta Airlines using Facade design pattern...");
 
                 // Set data handler for the airline
                 Delta.setDataHandler(dataHandler);
@@ -65,35 +60,35 @@ public class Demo {
                 Delta.loadData();
                 System.out.println("Delta Airline Data loaded successfully.");
 
-                System.out.println("\nFacade pattern simplifies the interaction with complex subsystems by providing a unified interface.");
+                System.out.println("\nThe Facade design pattern provides a simplified, unified interface to a complex subsystem, making it easier to use.");
                 System.out.println("\n************************************************************** ");
 
-                // Builder Design Pattern
-                System.out.println("\n******************* Builder Design Pattern *******************\n");
+                // Design Pattern 3 - Builder Design Pattern
+                System.out.println("\n************ DESIGN PATTERN - Builder Design Pattern **************\n");
 
-                Date date = new SimpleDateFormat("MM-dd-yyyy").parse("12-01-2022");
+                Date date = new SimpleDateFormat("MM-dd-yyyy").parse("12-06-2024");
                 List<FlightAPI> flightList = new ArrayList<>();
                 flightList.add(new FlightBuilder()
                         .setFlightID(4)
                         .setFlightDate(date)
                         .setPrice(3000)
                         .setStartSite("Boston")
-                        .setArriveSite("Iceland")
+                        .setArriveSite("New York")
                         .createFlight());
 
                 flightList.add(new FlightBuilder()
                         .setFlightID(5)
                         .setFlightDate(date)
                         .setPrice(1200)
-                        .setStartSite("New York")
-                        .setArriveSite("Paris")
+                        .setStartSite("Newark")
+                        .setArriveSite("India")
                         .createFlight());
 
                 List<PersonAPI> customersList = new ArrayList<>();
                 customersList.add(new CustomerBuilder()
                         .setCustomerID(4)
-                        .setFirstName("Ameya")
-                        .setLastName("Apte")
+                        .setFirstName("Nishi")
+                        .setLastName("Pancholi")
                         .setBirthYear(1997)
                         .setBirthMonth(10)
                         .setBirthDay(28)
@@ -101,8 +96,8 @@ public class Demo {
 
                 customersList.add(new CustomerBuilder()
                         .setCustomerID(5)
-                        .setFirstName("Kunal")
-                        .setLastName("Thapa")
+                        .setFirstName("Andrea")
+                        .setLastName("Sequeria")
                         .setBirthYear(1996)
                         .setBirthMonth(12)
                         .setBirthDay(02)
@@ -110,51 +105,51 @@ public class Demo {
 
                 customersList.add(new CustomerBuilder()
                         .setCustomerID(6)
-                        .setFirstName("Sayeed")
-                        .setLastName("Ahmed")
+                        .setFirstName("Atharva")
+                        .setLastName("Kamble")
                         .setBirthYear(1998)
                         .setBirthMonth(06)
                         .setBirthDay(12)
                         .createCustomers());
 
-                System.out.println("Customer data top row: \n" + customersList.get(0));
-                System.out.println("Flight data top row: \n" + flightList.get(0));
+                System.out.println("Customer's Row: \n" + customersList.get(0));
+                System.out.println("Flight's Row: \n" + flightList.get(0));
 
 
 
-                System.out.println("Flights and Customers created using Builder pattern.");
-                System.out.println("\nBuilder pattern provides a step-by-step approach to construct complex objects.");
+                System.out.println("Flights and Customers created using Builder pattern complete.");
+                System.out.println("\nThe Builder pattern simplifies complex object creation by constructing it step-by-step through a controlled process.");
                 System.out.println("\n************************************************************** ");
 
-                // Save data using Facade Pattern
-                System.out.println("\n******************* Save Data using Facade Pattern *******************\n");
+                // Design Pattern 4- Save data using Facade Pattern
+                System.out.println("\n************* DESIGN PATTERN - Save Data using Facade Pattern ***************\n");
 
                 Delta.saveFlights(flightList);
                 Delta.saveCustomers(customersList);
 
                 System.out.println("Data saved at: " + Delta.getAirLineName() + "Flight.csv and " + Delta.getAirLineName() + "Customer.csv");
 
-                System.out.println("Data saved successfully using Facade pattern.");
+                System.out.println("Data saved successfully using Facade pattern into the own csv file.");
 
                 System.out.println("\n************************************************************** ");
 
 
-                // Strategy Design Pattern
-                System.out.println("\n******************* Strategy Design Pattern *******************\n");
+                // Design Pattern 5- Strategy Design Pattern
+                System.out.println("\n*********** DESIGN PATTERN - Strategy Design Pattern *************\n");
 
                 // Available Discounts and Promo
                 DiscountStrategyAPI veteranDiscount = new VeteranDiscountStrategy();
                 DiscountStrategyAPI summerPromo = new SummerPromoStrategy();
                 DiscountStrategyAPI christmasDiscount = new ChristmasDiscountStrategy();
 
-                System.out.println("Available Offers and Discounts are:");
+                System.out.println("Current Offers and Promotions eligible:");
                 System.out.println(veteranDiscount);
                 System.out.println(summerPromo);
                 System.out.println(christmasDiscount);
 
                 // Apply discounts
                 FlightAPI flight = Delta.getFlights().get(0);
-                System.out.println("Initial Price of flight: $" + flight.getPrice());
+                System.out.println("Flight Price Before Discount: $" + flight.getPrice());
 
                 flight.setPrice(christmasDiscount.CalculateDiscount(flight.getPrice()));
                 System.out.println("Price after applying Christmas Discount: $" + flight.getPrice());
@@ -165,17 +160,17 @@ public class Demo {
                 flight.setPrice(veteranDiscount.CalculateDiscount(flight.getPrice()));
                 System.out.println("Price after applying Veteran's Discount: $" + flight.getPrice());
 
-                System.out.println("\nStrategy pattern allows for the definition of a family of algorithms, encapsulating each one, and making them interchangeable.");
+                System.out.println("\nThe Strategy pattern defines a family of algorithms, encapsulates them, and allows their interchangeability at runtime.");
                 System.out.println("\n************************************************************** ");
 
-                // Decorator Design Pattern
-                System.out.println("\n******************* Decorator Design Pattern *******************\n");
+                // Design Pattern 6 - Decorator Design Pattern
+                System.out.println("\n************DESIGN PATTERN - Decorator Design Pattern *************\n");
 
                 Booking booking = new Booking();
                 booking.setFlight(Delta.getFlights().get(1));
                 booking.setCustomer(Delta.getCustomers().get(0));
                 booking.setBookingId(4);
-                booking.setSeatNumber("12A");
+                booking.setSeatNumber("25B");
                 booking.getFlight().setPrice(500.0);
 
                 System.out.println("Initial booking details: \n" + booking);
@@ -186,14 +181,14 @@ public class Demo {
                 System.out.println("After adding premium upgrade: " + upgradedBooking.getUpgradeDescription());
                 System.out.println("Price after adding premium upgrade: $" + upgradedBooking.getBasePrice());
 
-                System.out.println("\nDecorator pattern allows behavior to be added to individual objects, dynamically.");
+                System.out.println("\nThe Decorator pattern dynamically adds new behavior or responsibilities to an object without altering its structure.");
                 System.out.println("\n************************************************************** ");
 
-                // Bridge Design Pattern
-                System.out.println("\n******************* Bridge Design Pattern *******************\n");
+                // Design Pattern 7 - Bridge Design Pattern
+                System.out.println("\n*******************DESIGN PATTERN - Bridge Design Pattern *******************\n");
 
                 // Apply seat selection feature
-                TicketFeature seatSelection = new SeatChangeFeature("13D");
+                TicketFeature seatSelection = new SeatChangeFeature("24D");
                 booking.setFeature(seatSelection);
                 booking.applyFeature();
 
@@ -203,41 +198,38 @@ public class Demo {
                 booking.applyFeature();
 
                 // Display final ticket details
-                System.out.println("Final Ticket Details: ");
+                System.out.println("Trip Details: ");
                 System.out.println("Passenger: " + booking.getCustomer().getFirstName() + " " + booking.getCustomer().getLastName());
                 System.out.println("Flight: " + booking.getFlight().getFlightID());
                 System.out.println("Seat: " + booking.getSeatNumber());
                 System.out.println("Meal: " + booking.getMealPreference());
 
-                System.out.println("\nBridge pattern separates the abstraction from its implementation, allowing for flexible extensions.");
+                System.out.println("\nThe Bridge pattern separates an abstraction from its implementation, allowing them to vary independently..");
                 System.out.println("\n************************************************************** ");
 
 
-                // Prototype Design Pattern
-                System.out.println("\n******************* Prototype Design Pattern *******************\n");
+                // Design Pattern 8 - Prototype Design Pattern
+                System.out.println("\n************* DESIGN PATTERN - Prototype Design Pattern **************\n");
 
-                // Clone the ticket for another passenger
-
-                Booking clonedBooking = (Booking) booking.cloneTicket();
-//                System.out.println(clonedBooking);
-                clonedBooking.setCustomer(Delta.getCustomers().get(1));
-                clonedBooking.setSeatNumber("14B");
+                Booking duplicateBooking = (Booking) booking.cloneTicket();
+                duplicateBooking.setCustomer(Delta.getCustomers().get(1));
+                duplicateBooking.setSeatNumber("25C");
 
 
 
                 // Print out both tickets
-                System.out.println("Original Ticket: " + booking);
-                System.out.println("Cloned Ticket: " + clonedBooking);
-                System.out.println("\nPrototype pattern allows for creating a duplicate object with minimal effort.");
+                System.out.println("Actual Ticket: " + booking);
+                System.out.println("Duplicate Ticket: " + duplicateBooking);
+                System.out.println("\nThe Prototype pattern creates new objects by copying existing ones, ensuring efficient object creation.");
                 System.out.println("\n************************************************************** ");
 
 
-                // Command Design Pattern
-                System.out.println("\n******************* Command Design Pattern *******************\n");
+                // Design Pattern 9 - Command Design Pattern
+                System.out.println("\n******************* DESIGN PATTERN - Command Design Pattern *******************\n");
 
                 // Create commands
-                Command bookCommand = new BookTicketCommand(clonedBooking);
-                Command cancelCommand = new CancelTicketCommand(clonedBooking);
+                Command bookCommand = new BookTicketCommand(duplicateBooking);
+                Command cancelCommand = new CancelTicketCommand(duplicateBooking);
 
                 // Create the invoker
                 TicketInvoker invoker = new TicketInvoker();
@@ -250,11 +242,11 @@ public class Demo {
                 invoker.setCommand(cancelCommand);
                 invoker.executeCommand();
 
-                System.out.println("\nCommand pattern decouples the sender and receiver by encapsulating requests as objects.");
+                System.out.println("\nThe Command pattern encapsulates requests as objects, allowing for parameterization, queuing, and reversible operations.");
                 System.out.println("\n************************************************************** ");
 
-                // Observer Design Pattern
-                System.out.println("\n******************* Observer Design Pattern *******************\n");
+                // Design Pattern 10 - Observer Design Pattern
+                System.out.println("\n******************* DESIGN PATTERN - Observer Design Pattern *******************\n");
 
                 Observer emailObserver = new EmailObserver();
                 Observer smsObserver = new SMSObserver();
@@ -268,12 +260,12 @@ public class Demo {
                 booking.setStatus("Checked-In");
                 booking.setStatus("Canceled");
 
-                System.out.println("\nObserver pattern enables an object to notify its observers of state changes, allowing for a one-to-many relationship.");
+                System.out.println("\nThe Observer pattern establishes a one-to-many dependency, notifying all dependent objects (observers) of changes in a subject.");
                 System.out.println("\n************************************************************** ");
 
 
-                // Adapter Design Pattern
-                System.out.println("\n******************* Adapter Design Pattern *******************\n");
+                // Design Pattern 11 - Adapter Design Pattern
+                System.out.println("\n*************** DESIGN PATTERN -  Adapter Design Pattern ***************\n");
 //
                 USCurrency us_currency = new USCurrency();
                 FlightPriceCurrency Ifpc = new INRCurrency();
@@ -293,11 +285,11 @@ public class Demo {
                 System.out.println("CurrencyAdapter...adapter over Legacy API");
                 c_adapter.showcurrency(Delta.getFlights().get(0).getPrice());
 
-
-                System.out.println("\nAdapter pattern allows objects with incompatible interfaces to work together.");
+               
+                System.out.println("\nThe Adapter pattern allows incompatible interfaces to work together by converting one interface into another expected by the client.");
                 System.out.println("\n************************************************************** ");
-
-                System.out.println("\n******************* State Design Pattern *******************\n");
+                 // Design Pattern 12 - State Design Pattern
+                System.out.println("\n************ DESIGN PATTERN - State Design Pattern ************\n");
 
                 FlightState fs = new FlightState(Delta.getFlights().get(0).getFlightID());
                 fs.onBoarding();
@@ -327,7 +319,7 @@ public class Demo {
                 fs2.inTransit();
                 System.out.println("Flight Schedule status: " + fs2.isScheduled());
 
-                System.out.println("\nState pattern allows an object to change its behavior when its internal state changes.");
+                System.out.println("\nThe State pattern allows an object to alter its behavior when its internal state changes, making it appear as if the object has changed its class.");
                 System.out.println("\n************************************************************** ");
 
 

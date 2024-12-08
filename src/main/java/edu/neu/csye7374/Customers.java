@@ -45,11 +45,11 @@ public class Customers implements PersonAPI{
     }
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Customer Name: " + this.firstName + " " + this.lastName + "\n");
-        sb.append("Customer ID: " + customerID + "\n");
-        sb.append("Customer Birthday: " + birthDay + "-" + birthMonth + "-" + birthYear + "\n");
-        return sb.toString();
+        StringBuilder sbForCustomers = new StringBuilder();
+        sbForCustomers.append("Customer Name: " + this.firstName + " " + this.lastName + "\n");
+        sbForCustomers.append("Customer ID: " + customerID + "\n");
+        sbForCustomers.append("Customer Birthday: " + birthDay + "-" + birthMonth + "-" + birthYear + "\n");
+        return sbForCustomers.toString();
     }
 
 
