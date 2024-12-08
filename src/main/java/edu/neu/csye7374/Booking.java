@@ -114,13 +114,13 @@ public class Booking implements TicketPrototype, Cloneable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Booking - " + bookingId + "\n");
-        sb.append("Flight: " + flight.getFlightID() + "\n");
-        sb.append("Customer Name: " + customer.getFirstName() + " " + customer.getLastName() + "\n");
-        sb.append("Seat No: " + seatNumber + "\n");
-        sb.append("Meal Preference: " + mealPreference + "\n");
-        return sb.toString();
+        StringBuilder sbForBooking = new StringBuilder();
+        sbForBooking.append("Booking - " + bookingId + "\n");
+        sbForBooking.append("Flight: " + flight.getFlightID() + "\n");
+        sbForBooking.append("Customer Name: " + customer.getFirstName() + " " + customer.getLastName() + "\n");
+        sbForBooking.append("Seat No: " + seatNumber + "\n");
+        sbForBooking.append("Meal Preference: " + mealPreference + "\n");
+        return sbForBooking.toString();
     }
 
     @Override

@@ -44,13 +44,13 @@ public class Flight implements FlightAPI{
     }
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Flight - "+ flightID + "\n");
-        sb.append("Price: " + price + "\n");
-        sb.append("Date: " + flightDate + "\n");
-        sb.append("Origin: " + startSite + "\n");
-        sb.append("Destination: " + arriveSite + "\n");
-        return sb.toString();
+        StringBuilder sbForFlight = new StringBuilder();
+        sbForFlight.append("Flight - "+ flightID + "\n");
+        sbForFlight.append("Price: " + price + "\n");
+        sbForFlight.append("Date: " + flightDate + "\n");
+        sbForFlight.append("Origin: " + startSite + "\n");
+        sbForFlight.append("Destination: " + arriveSite + "\n");
+        return sbForFlight.toString();
     }
 
 }

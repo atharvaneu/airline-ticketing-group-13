@@ -103,14 +103,14 @@ public class Airline {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("customers:");
-        sb.append(customers);
-        sb.append("flights:");
-        sb.append(flights);
-        sb.append("bookings:");
-        sb.append(bookings);
-        return sb.toString();
+        StringBuilder sbForAirline = new StringBuilder();
+        sbForAirline.append("customers:");
+        sbForAirline.append(customers);
+        sbForAirline.append("flights:");
+        sbForAirline.append(flights);
+        sbForAirline.append("bookings:");
+        sbForAirline.append(bookings);
+        return sbForAirline.toString();
     }
 
 }
