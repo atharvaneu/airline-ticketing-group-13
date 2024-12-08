@@ -1,6 +1,6 @@
 package org.neu;
 
-import org.neu.Adapter.CanadaCurrency;
+import org.neu.Adapter.JapanCurrency;
 import org.neu.Adapter.FlightPriceCurrency;
 import org.neu.Adapter.INRCurrency;
 import org.neu.Adapter.USCurrency;

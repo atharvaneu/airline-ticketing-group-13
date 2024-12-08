@@ -1,7 +1,7 @@
 package org.neu.Adapter;
 
-public class EuroCurrency implements FlightPriceCurrency {
-    public double conversionRate = 0.91;
+public class EuroCurrency implements FlightCurrency {
+    public double conversionRate = ConversionRate.EUR.getRate();
 
     @Override
     public void showcurrency(double price) {

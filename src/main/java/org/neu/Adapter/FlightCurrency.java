@@ -1,5 +1,5 @@
 package org.neu.Adapter;
 
-public interface FlightPriceCurrency {
+public interface FlightCurrency {
     public void showcurrency(double price);
 }

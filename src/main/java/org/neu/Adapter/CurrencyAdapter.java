@@ -1,6 +1,6 @@
 package org.neu.Adapter;
 
-public class CurrencyAdapter implements FlightPriceCurrency {
+public class CurrencyAdapter implements FlightCurrency {
 
     Currency c ;
 
@@ -10,7 +10,7 @@ public class CurrencyAdapter implements FlightPriceCurrency {
 
     @Override
     public void showcurrency(double price) {
-        c.showpriceCurrency(price);
+        c.showPriceCurrency(price);
     }
 
 }
