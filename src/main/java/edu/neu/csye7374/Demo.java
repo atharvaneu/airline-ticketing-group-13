@@ -271,21 +271,25 @@ public class Demo {
                 System.out.println("\n*************** DESIGN PATTERN -  Adapter Design Pattern ***************\n");
 //
                 USCurrency us_currency = new USCurrency();
-                FlightPriceCurrency Ifpc = new INRCurrency();
-                FlightPriceCurrency Cfpc = new CanadaCurrency();
+                FlightPriceCurrency inrCurrency = new INRCurrency();
+                FlightPriceCurrency cadCurrency = new CanadaCurrency();
+                FlightPriceCurrency yenCurrency = new JapanCurrency();
 
                 FlightPriceCurrency c_adapter = new CurrencyAdapter(us_currency);
 
                 System.out.println("US Currency...LegacyAPI");
                 us_currency.showPriceCurrency(Delta.getFlights().get(0).getPrice());
 
-                System.out.println("Flight Price in INR Currency...Client API");
-                Ifpc.showcurrency(Delta.getFlights().get(0).getPrice());
+                System.out.println("Flight Price in INR Currency\t\t>\t\tClient API");
+                inrCurrency.showcurrency(Delta.getFlights().get(0).getPrice());
 
-                System.out.println("Flight Price in Canadian Dollar Currency...Client API");
-                Cfpc.showcurrency(Delta.getFlights().get(0).getPrice());
+                System.out.println("Flight Price in Canadian Dollar Currency\t\t>\t\tClient API");
+                cadCurrency.showcurrency(Delta.getFlights().get(0).getPrice());
 
-                System.out.println("CurrencyAdapter...adapter over Legacy API");
+                System.out.println("Flight Price in Japanese Yen Currency\t\t>\t\tClient API");
+                yenCurrency.showcurrency(Delta.getFlights().get(0).getPrice());
+
+                System.out.println("CurrencyAdapter\t\t>\t\tAdapter over Legacy API");
                 c_adapter.showcurrency(Delta.getFlights().get(0).getPrice());
 
                
