@@ -4,7 +4,7 @@ import edu.neu.csye7374.Booking;
 
 public class LuggageFeature extends AbstractTicketFeature {
     private int additionalBags;
-    private static final int MAX_ADDITIONAL_BAGS = 3;
+    private static final int MAX_ADDITIONAL_BAGS = 5;
 
     public LuggageFeature(int additionalBags) {
         super();

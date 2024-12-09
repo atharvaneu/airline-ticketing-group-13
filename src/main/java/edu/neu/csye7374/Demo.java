@@ -197,7 +197,7 @@ public class Demo {
                 booking.applyFeature();
 
                 // Apply luggage preference feature
-                booking.setFeature(new LuggageFeature(2));
+                booking.setFeature(new LuggageFeature(1));  // should not be more than 1
                 booking.applyFeature();
 
                 // Display final ticket details
