@@ -9,67 +9,62 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class CSVHandler implements FileHandlerAPI {
     /*
      * implementation of FileHandlerAPI that stores and loads data locally in .csv file format
      */
     @Override
     public File getFile(String fileName) {
-        File csvOutputFile = new File(fileName);
+        File csvFile = new File(fileName);
         try {
-            boolean res = csvOutputFile.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
+            boolean isCreated = csvFile.createNewFile();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
         }
-        return csvOutputFile;
+        return csvFile;
     }
 
     @Override
     public List<String> readFile(String fileName) {
-        List<String> inputArray = new ArrayList<String>();
-        if((getFile(fileName))!= null) {
+        List<String> fileContent = new ArrayList<>();
+        if (getFile(fileName) != null) {
             try {
-                FileReader file = new FileReader(fileName);
-                BufferedReader in = new BufferedReader(file);
-                String nextLine;
+                FileReader reader = new FileReader(fileName);
+                BufferedReader bufferedReader = new BufferedReader(reader);
+                String line;
 
-                while((nextLine = in.readLine())!= null) {
-                    inputArray.add(nextLine);
+                while ((line = bufferedReader.readLine()) != null) {
+                    fileContent.add(line);
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
             }
         }
-
-        return inputArray;
+        return fileContent;
     }
-    public static FileWriter fileWriter(String fileName) {
+
+    public static FileWriter initializeFileWriter(String fileName) {
         try {
             return new FileWriter(fileName);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
             return null;
         }
-
     }
-    public void addLineData(List<String> lineData, String fileName) {
-        FileWriter outputFile = fileWriter(fileName);
-        if(outputFile != null) {
+
+    public void addLineData(List<String> dataLines, String fileName) {
+        FileWriter writer = initializeFileWriter(fileName);
+        if (writer != null) {
             try {
-                BufferedWriter out = new BufferedWriter(outputFile);
-                for(String nextLine : lineData) {
-                    out.write(nextLine);
-                    out.newLine();
+                BufferedWriter bufferedWriter = new BufferedWriter(writer);
+                for (String line : dataLines) {
+                    bufferedWriter.write(line);
+                    bufferedWriter.newLine();
                 }
-                out.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
+                bufferedWriter.flush();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
             }
         }
-
-
     }
-
-
 }
