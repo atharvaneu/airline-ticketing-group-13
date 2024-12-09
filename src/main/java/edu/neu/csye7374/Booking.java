@@ -17,6 +17,8 @@ public class Booking implements TicketPrototype, Cloneable {
     private List<Observer> observers = new ArrayList<>();
     private String status;
     private TicketFeature feature;
+    private List<TicketFeature> appliedFeatures = new ArrayList<>();
+    private int checkedBags = 2;
 
     public String getSeatNumber() {
         return seatNumber;
@@ -53,6 +55,7 @@ public class Booking implements TicketPrototype, Cloneable {
     public void applyFeature() {
         if (feature != null) {
             feature.applyFeature(this);
+            appliedFeatures.add(feature);
         }
     }
 
@@ -131,5 +134,13 @@ public class Booking implements TicketPrototype, Cloneable {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public int getCheckedBags() {
+        return checkedBags;
+    }
+
+    public void setCheckedBags(int checkedBags) {
+        this.checkedBags = checkedBags;
     }
 }
