@@ -1,12 +1,12 @@
 package edu.neu.csye7374.Decorator;
 public class PremiumUpgrade extends FlightUpgrade{
-    double premiumCharge = 99.99;
+    double premiumChargeValue = 99.99;
     public PremiumUpgrade(FlightUpgradeOptions upgradeOptions) {
         super(upgradeOptions);
     }
 
     public double getBasePrice() {
-        return this.upgradeOptions.getBasePrice() + premiumCharge;
+        return this.upgradeOptions.getBasePrice() + premiumChargeValue;
     }
 
     public String getUpgradeDescription() {
