@@ -5,7 +5,6 @@ import edu.neu.csye7374.Booking;
 public class LuggageFeature extends AbstractTicketFeature {
     private int additionalBags;
     private static final int MAX_ADDITIONAL_BAGS = 3;
-    private static final double PRICE_PER_BAG = 30.0;
 
     public LuggageFeature(int additionalBags) {
         super();
@@ -35,9 +34,5 @@ public class LuggageFeature extends AbstractTicketFeature {
     @Override
     public String getFeatureDescription() {
         return String.format("Additional Luggage (%d bags)", additionalBags);
-    }
-
-    private double calculateAdditionalCost() {
-        return additionalBags * PRICE_PER_BAG;
     }
 }
