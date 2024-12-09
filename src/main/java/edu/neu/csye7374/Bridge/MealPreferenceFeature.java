@@ -1,19 +1,41 @@
 package edu.neu.csye7374.Bridge;
-import edu.neu.csye7374.Booking;
-//import edu.neu.csye7374.Prototype.AirlineTicket;
-import edu.neu.csye7374.Prototype.TicketPrototype;
 
-public class MealPreferenceFeature implements TicketFeature {
+import edu.neu.csye7374.Booking;
+import java.util.Arrays;
+import java.util.List;
+
+public class MealPreferenceFeature extends AbstractTicketFeature {
     private String mealPreference;
+    private static final List<String> VALID_MEAL_PREFERENCES = Arrays.asList(
+            "REGULAR", "VEGETARIAN", "VEGAN", "HALAL", "KOSHER", "GLUTEN_FREE"
+    );
 
     public MealPreferenceFeature(String mealPreference) {
-        this.mealPreference = mealPreference;
+        super();
+        this.mealPreference = mealPreference.toUpperCase();
     }
 
     @Override
-    public void applyFeature(Booking ticket) {
-        System.out
-                .println("Applying meal preference: " + mealPreference + " to ticket for " + (ticket.getCustomer().getFirstName() + " " + ticket.getCustomer().getLastName()));
+    protected void performFeatureApplication(Booking ticket) {
+        String oldPreference = ticket.getMealPreference();
         ticket.setMealPreference(mealPreference);
+        System.out.println(String.format(
+                "Meal preference changed from %s to %s for passenger %s %s",
+                oldPreference,
+                mealPreference,
+                ticket.getCustomer().getFirstName(),
+                ticket.getCustomer().getLastName()
+        ));
+    }
+
+    @Override
+    public boolean validateFeature(Booking ticket) {
+        return VALID_MEAL_PREFERENCES.contains(mealPreference) &&
+                !mealPreference.equals(ticket.getMealPreference());
+    }
+
+    @Override
+    public String getFeatureDescription() {
+        return "Meal Preference Change to " + mealPreference;
     }
 }

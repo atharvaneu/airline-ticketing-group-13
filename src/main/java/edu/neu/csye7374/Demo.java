@@ -1,5 +1,6 @@
 package edu.neu.csye7374;
 
+import edu.neu.csye7374.Bridge.LuggageFeature;
 import edu.neu.csye7374.Decorator.*;
 import edu.neu.csye7374.Facade.SaveAndLoadFacadeAPI;
 import edu.neu.csye7374.Facade.SaveAndLoadToLocal;
@@ -188,13 +189,15 @@ public class Demo {
                 System.out.println("\n*******************DESIGN PATTERN - Bridge Design Pattern *******************\n");
 
                 // Apply seat selection feature
-                TicketFeature seatSelection = new SeatChangeFeature("24D");
-                booking.setFeature(seatSelection);
+                booking.setFeature(new SeatChangeFeature("24D"));
                 booking.applyFeature();
 
                 // Apply meal preference feature
-                TicketFeature mealPreference = new MealPreferenceFeature("Vegetarian");
-                booking.setFeature(mealPreference);
+                booking.setFeature(new MealPreferenceFeature("Vegetarian"));
+                booking.applyFeature();
+
+                // Apply luggage preference feature
+                booking.setFeature(new LuggageFeature(2));
                 booking.applyFeature();
 
                 // Display final ticket details
