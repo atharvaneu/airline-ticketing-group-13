@@ -280,13 +280,13 @@ public class Demo {
                 System.out.println("US Currency...LegacyAPI");
                 us_currency.showPriceCurrency(Delta.getFlights().get(0).getPrice());
 
-                System.out.println("Flight Price in INR Currency\t\t>\t\tClient API");
+                System.out.println("Flight Price in INR Currency > Client API");
                 inrCurrency.showcurrency(Delta.getFlights().get(0).getPrice());
 
-                System.out.println("Flight Price in Canadian Dollar Currency\t\t>\t\tClient API");
+                System.out.println("Flight Price in Canadian Dollar Currency > Client API");
                 cadCurrency.showcurrency(Delta.getFlights().get(0).getPrice());
 
-                System.out.println("Flight Price in Japanese Yen Currency\t\t>\t\tClient API");
+                System.out.println("Flight Price in Japanese Yen Currency > Client API");
                 yenCurrency.showcurrency(Delta.getFlights().get(0).getPrice());
 
                 System.out.println("CurrencyAdapter\t\t>\t\tAdapter over Legacy API");
