@@ -138,28 +138,28 @@ public class Demo {
                 // Design Pattern 5- Strategy Design Pattern
                 System.out.println("\n*********** DESIGN PATTERN - Strategy Design Pattern *************\n");
 
-                // Available Discounts and Promo
-                DiscountStrategyAPI veteranDiscount = new VeteranDiscountStrategy();
-                DiscountStrategyAPI summerPromo = new SummerPromoStrategy();
-                DiscountStrategyAPI christmasDiscount = new ChristmasDiscountStrategy();
+                // Available Discounts and Promotions
+                DiscountStrategyAPI employeeDiscount = new EmployeeDiscountStrategy();
+                DiscountStrategyAPI newUserPromo = new NewUserPromoStrategy();
+                DiscountStrategyAPI blackFridayDiscount = new BlackFridayDiscountStrategy();
 
                 System.out.println("Current Offers and Promotions eligible:");
-                System.out.println(veteranDiscount);
-                System.out.println(summerPromo);
-                System.out.println(christmasDiscount);
+                System.out.println(employeeDiscount);
+                System.out.println(newUserPromo);
+                System.out.println(blackFridayDiscount);
 
                 // Apply discounts
                 FlightAPI flight = Emirates.getFlights().get(0);
                 System.out.println("Flight Price Before Discount: $" + flight.getPrice());
 
-                flight.setPrice(christmasDiscount.CalculateDiscount(flight.getPrice()));
-                System.out.println("Price after applying Christmas Discount: $" + flight.getPrice());
+                flight.setPrice(blackFridayDiscount.CalculateDiscount(flight.getPrice()));
+                System.out.println("Price after applying Black Friday Discount: $" + flight.getPrice());
 
-                flight.setPrice(summerPromo.CalculateDiscount(flight.getPrice()));
-                System.out.println("Price after applying Summer Discount: $" + flight.getPrice());
+                flight.setPrice(newUserPromo.CalculateDiscount(flight.getPrice()));
+                System.out.println("Price after applying New User Discount: $" + flight.getPrice());
 
-                flight.setPrice(veteranDiscount.CalculateDiscount(flight.getPrice()));
-                System.out.println("Price after applying Veteran's Discount: $" + flight.getPrice());
+                flight.setPrice(employeeDiscount.CalculateDiscount(flight.getPrice()));
+                System.out.println("Price after applying Employee Discount: $" + flight.getPrice());
 
                 System.out.println("\nThe Strategy pattern defines a family of algorithms, encapsulates them, and allows their interchangeability at runtime.");
                 System.out.println("\n************************************************************** ");
