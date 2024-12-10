@@ -39,9 +39,9 @@ public class Demo {
 
                 System.out.println("Initialize Airline though Singleton Factory...");
                 AirlineFactory af = AirlineFactory.getInstance();
-                Airline Delta = af.getObject();
-                Delta.setAirlineName("Delta");
-                System.out.println("Airline created: " + Delta.getAirLineName());
+                Airline Emirates = af.getObject();
+                Emirates.setAirlineName("Emirates");
+                System.out.println("Airline created: " + Emirates.getAirLineName());
 
                 System.out.println("\nThe Singleton Factory pattern ensures a single factory instance globally manages object creation and control.");
                 System.out.println("\n************************************************************** ");
@@ -52,14 +52,14 @@ public class Demo {
                 FileHandlerAPI csvHandler = new CSVHandler();
                 SaveAndLoadFacadeAPI dataHandler = new SaveAndLoadToLocal(csvHandler);
 
-                System.out.println("Initializing Delta Airlines using Facade design pattern...");
+                System.out.println("Initializing Emirates Airlines using Facade design pattern...");
 
                 // Set data handler for the airline
-                Delta.setDataHandler(dataHandler);
+                Emirates.setDataHandler(dataHandler);
 
                 // Load data using facade pattern
-                Delta.loadData();
-                System.out.println("Delta Airline Data loaded successfully.");
+                Emirates.loadData();
+                System.out.println("Emirates Airline Data loaded successfully.");
 
                 System.out.println("\nThe Facade design pattern provides a simplified, unified interface to a complex subsystem, making it easier to use.");
                 System.out.println("\n************************************************************** ");
@@ -125,10 +125,10 @@ public class Demo {
                 // Design Pattern 4- Save data using Facade Pattern
                 System.out.println("\n************* DESIGN PATTERN - Save Data using Facade Pattern ***************\n");
 
-                Delta.saveFlights(flightList);
-                Delta.saveCustomers(customersList);
+                Emirates.saveFlights(flightList);
+                Emirates.saveCustomers(customersList);
 
-                System.out.println("Data saved at: " + Delta.getAirLineName() + "Flight.csv and " + Delta.getAirLineName() + "Customer.csv");
+                System.out.println("Data saved at: " + Emirates.getAirLineName() + "Flight.csv and " + Emirates.getAirLineName() + "Customer.csv");
 
                 System.out.println("Data saved successfully using Facade pattern into the own csv file.");
 
@@ -149,7 +149,7 @@ public class Demo {
                 System.out.println(christmasDiscount);
 
                 // Apply discounts
-                FlightAPI flight = Delta.getFlights().get(0);
+                FlightAPI flight = Emirates.getFlights().get(0);
                 System.out.println("Flight Price Before Discount: $" + flight.getPrice());
 
                 flight.setPrice(christmasDiscount.CalculateDiscount(flight.getPrice()));
@@ -168,8 +168,8 @@ public class Demo {
                 System.out.println("\n************DESIGN PATTERN - Decorator Design Pattern *************\n");
 
                 Booking booking = new Booking();
-                booking.setFlight(Delta.getFlights().get(1));
-                booking.setCustomer(Delta.getCustomers().get(0));
+                booking.setFlight(Emirates.getFlights().get(1));
+                booking.setCustomer(Emirates.getCustomers().get(0));
                 booking.setBookingId(4);
                 booking.setSeatNumber("25B");
                 booking.getFlight().setPrice(500.0);
@@ -215,7 +215,7 @@ public class Demo {
                 System.out.println("\n************* DESIGN PATTERN - Prototype Design Pattern **************\n");
 
                 Booking duplicateBooking = (Booking) booking.cloneTicket();
-                duplicateBooking.setCustomer(Delta.getCustomers().get(1));
+                duplicateBooking.setCustomer(Emirates.getCustomers().get(1));
                 duplicateBooking.setSeatNumber("25C");
 
 
@@ -278,19 +278,19 @@ public class Demo {
                 FlightPriceCurrency c_adapter = new CurrencyAdapter(us_currency);
 
                 System.out.println("US Currency...LegacyAPI");
-                us_currency.showPriceCurrency(Delta.getFlights().get(0).getPrice());
+                us_currency.showPriceCurrency(Emirates.getFlights().get(0).getPrice());
 
                 System.out.println("Flight Price in INR Currency > Client API");
-                inrCurrency.showcurrency(Delta.getFlights().get(0).getPrice());
+                inrCurrency.showcurrency(Emirates.getFlights().get(0).getPrice());
 
                 System.out.println("Flight Price in Canadian Dollar Currency > Client API");
-                cadCurrency.showcurrency(Delta.getFlights().get(0).getPrice());
+                cadCurrency.showcurrency(Emirates.getFlights().get(0).getPrice());
 
                 System.out.println("Flight Price in Japanese Yen Currency > Client API");
-                yenCurrency.showcurrency(Delta.getFlights().get(0).getPrice());
+                yenCurrency.showcurrency(Emirates.getFlights().get(0).getPrice());
 
                 System.out.println("CurrencyAdapter\t\t>\t\tAdapter over Legacy API");
-                c_adapter.showcurrency(Delta.getFlights().get(0).getPrice());
+                c_adapter.showcurrency(Emirates.getFlights().get(0).getPrice());
 
                
                 System.out.println("\nThe Adapter pattern allows incompatible interfaces to work together by converting one interface into another expected by the client.");
@@ -298,7 +298,7 @@ public class Demo {
                  // Design Pattern 12 - State Design Pattern
                 System.out.println("\n************ DESIGN PATTERN - State Design Pattern ************\n");
 
-                FlightState fs = new FlightState(Delta.getFlights().get(0).getFlightID());
+                FlightState fs = new FlightState(Emirates.getFlights().get(0).getFlightID());
                 fs.onBoarding();
                 //
                 fs.delay();
@@ -319,7 +319,7 @@ public class Demo {
                 fs.cancelled();
                 fs.offboarding();
 
-                FlightState fs2 = new FlightState(Delta.getFlights().get(1).getFlightID());
+                FlightState fs2 = new FlightState(Emirates.getFlights().get(1).getFlightID());
                 fs2.delay();
                 fs2.onBoarding();
                 fs2.cancelled();
